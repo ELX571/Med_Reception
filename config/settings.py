@@ -39,10 +39,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #local
     'med_reception',
+    'accounts',
 
     #3 rd
     'rest_framework',
+    'rest_framework.authtoken',
 ]
+
+AUTH_USER_MODEL = 'accounts.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
